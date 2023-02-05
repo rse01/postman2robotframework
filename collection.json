@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "427ec077-b086-47c1-8a2c-ab05cb69fe06",
+		"name": "Collection - Articles",
+		"description": "This is a data store of articles about Postman collections. The examples for this collection is the data store, and then the API is mocked from that. If you want to use as an API just fork the collection and mock under your account, then add URL to an article_url variable in environment. Leave any comments on the collection, or part of the collection if you have any questions or feedback.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "0"
+	},
+	"item": [
+		{
+			"name": "Articles",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{article_url}}/collections/articles/",
+					"host": [
+						"{{article_url}}"
+					],
+					"path": [
+						"collections",
+						"articles",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Articles",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{article_url}}/collections/articles/",
+							"host": [
+								"{{article_url}}"
+							],
+							"path": [
+								"collections",
+								"articles",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2114"
+						},
+						{
+							"key": "Server",
+							"value": "GitHub.com"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31556952"
+						},
+						{
+							"key": "Last-Modified",
+							"value": "Sun, 28 Mar 2021 03:03:06 GMT"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"605ff1ea-1501\""
+						},
+						{
+							"key": "expires",
+							"value": "Sun, 28 Mar 2021 03:24:10 GMT"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "max-age=600"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "x-proxy-cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-GitHub-Request-Id",
+							"value": "3366:641E:9AE88:26F78A:605FF482"
+						},
+						{
+							"key": "Accept-Ranges",
+							"value": "bytes"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 28 Mar 2021 03:31:05 GMT"
+						},
+						{
+							"key": "Via",
+							"value": "1.1 varnish"
+						},
+						{
+							"key": "Age",
+							"value": "100"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-pao17451-PAO"
+						},
+						{
+							"key": "X-Cache",
+							"value": "HIT"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "1"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1616902265.299615,VS0,VE0"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "X-Fastly-Request-ID",
+							"value": "897d69490747194a2ee3e91c3fa6d354a2313066"
+						}
+					],
+					"cookie": [],
+					"body": "[\n  {\n    \"name\": \"How to Organize Your API With Collections, Environments, and Workspaces\",\n    \"description\": \"Postman provides a very flexible set of tools for helping API providers define their APIs more effectively. Postman makes APIs more discoverable, usable, and easy to iterate on across teams and helps teams strategize on how APIs are defined, designed, developed, and operated within production environments.\",\n    \"image\": \"\",\n    \"tags\": [\n      \"OpenId\",\n      \"Definitions\",\n      \"Article\"\n    ],\n    \"datePublished\": \"2019-10-13 12:00:00 +0000\",\n    \"source\": \"https://blog.postman.com/how-to-organize-your-api-definitions/\"\n  },\n  {\n    \"name\": \"Creating Postman Collections\",\n    \"description\": \"Postman Collections allow you to group multiple requests together which you can store in folders and reuse later on as needed. Collections are a really powerful concept in Postman and understanding how to create and use collections effectively will really help you a lot in API testing.\",\n    \"image\": \"\",\n    \"tags\": [\n      \"Dev.to\",\n      \"Testing\",\n      \"Automation\"\n    ],\n    \"datePublished\": \"2020-11-20 12:00:00 +0000\",\n    \"source\": \"https://dev.to/automationbro/creating-postman-collections-1cdp\"\n  },\n  {\n    \"name\": \"Neatly organise your Postman collections to navigate your micro-services maze\",\n    \"description\": \"Postman Collections allow you to group multiple requests together which you can store in folders and reuse later on as needed. Collections are a really powerful concept in Postman and understanding how to create and use collections effectively will really help you a lot in API testing.\",\n    \"image\": \"\",\n    \"tags\": [\n      \"Medium\",\n      \"Organization\",\n      \"Domains\"\n    ],\n    \"datePublished\": \"2020-08-12 12:00:00 +0000\",\n    \"source\": \"https://medium.com/prospa-engineering/neatly-organise-your-postman-collections-to-navigate-your-micro-services-maze-b3c6616dd157\"\n  }\n]"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://postman-open-technologies.github.io/specifications/apis/",
+			"type": "any"
+		}
+	]
+}

@@ -1,20 +1,19 @@
 import requests
 
-{% if variables|length > 0 -%}from string import Template{% endif %}
+if variables and len(variables) > 0:
+    from string import Template
 
 class {{ name }}:
-{%- for item in items %}
+    {% for item in items %}
 
-    def {{item.def_name}}(self{% for var in item.variables %},{{var}}{% endfor %}):
+    def {{ item.def_name }}(self{% for var in item.variables %}, {{ var }}{% endfor %}):
         """
-        {{item.documentation}}
+        {{ item.documentation }}
         """
-
-        url = {% if item.variables|length > 0 %}Template("{{item.url}}").substitute({% for var in item.variables %}{{var}}={{var}}{{ "," if not loop.last }}{% endfor %}){% else %}"{{item.url}}"{% endif %}
-        method = "{{item.method}}"
-        headers = {{item.header}}
-        {% if item.body != "" %}data = {% if item.variables|length > 0 %}Template("{{item.body | replace('\n','\\n') | replace('\"','\\"')}}").substitute({% for var in item.variables %}{{var}}={{var}}{{ "," if not loop.last }}{% endfor %}){% else %}"{{item.body | replace('\n','\\n') | replace('\"','\\"')}}"{% endif %}{% endif %}
-        response = requests.request(method, url, headers=headers{% if item.body != "" %}, data=data{% endif %})
-
+        url = (Template("{{ item.url }}").substitute({% for var in item.variables %}{{ var }}={{ var }}{{ "," if not loop.last }}{% endfor %})) if item.variables and len(item.variables) > 0 else "{{ item.url }}"
+        method = "{{ item.method }}"
+        headers = {{ item.header }}
+        data = (Template("{{ item.body | replace('\n','\\n') | replace('\"','\\"') }}").substitute({% for var in item.variables %}{{ var }}={{ var }}{{ "," if not loop.last }}{% endfor %})) if item.body and item.variables and len(item.variables) > 0 else "{{ item.body | replace('\n','\\n') | replace('\"','\\"') }}" if item.body else None
+        response = requests.request(method, url, headers=headers, data=data if data else None)
         return response.text
-{%- endfor -%}
+    {% endfor %}
